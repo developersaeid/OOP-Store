@@ -35,7 +35,7 @@ class Cart {
   productInfo(data) {
     const { name, price } = data;
     const info = `
-        <div>
+        <div id="cart-info">
             <h4>${name}</h4>
             <p>${price}</p>
         </div>
@@ -45,7 +45,7 @@ class Cart {
   productControl(date, quantity) {
     const { id } = date;
     const control = `
-    <div>
+    <div id="cart-control">
         <div>
             <button data-id=${id}>-</button>
             <span>${quantity}</span>
