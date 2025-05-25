@@ -1,31 +1,13 @@
-// Create Class for showing products
-class Products {
+import Display from "./Display.js";
+class Products extends Display {
   constructor(parent, products, cart) {
-    this.parent = parent;
-    this.products = products;
+    super(parent, products);
     this.cart = cart;
-    this.parent.addEventListener("click", this);
   }
   showProducts() {
     this.products.forEach((product) => this.createCard(product));
   }
-  createCard(data) {
-    const cardEle = document.createElement("div");
 
-    const imgEl = this.productImg(data);
-    const infoEl = this.productInfo(data);
-
-    cardEle.innerHTML = imgEl;
-    cardEle.innerHTML += infoEl;
-
-    this.parent.appendChild(cardEle);
-  }
-
-  productImg(data) {
-    const { image, alt } = data;
-    const img = `<img alt="${alt}" src="${image}"/>`;
-    return img;
-  }
   productInfo(data) {
     const { id, name, price } = data;
     const infoJsx = `
