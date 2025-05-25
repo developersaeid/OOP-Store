@@ -1,8 +1,9 @@
 // Create Class for showing products
 class Products {
-  constructor(parent, products) {
+  constructor(parent, products, cart) {
     this.parent = parent;
     this.products = products;
+    this.cart = cart;
     this.parent.addEventListener("click", this);
   }
   showProducts() {
@@ -41,13 +42,14 @@ class Products {
 
   handleEvent() {
     const element = event.target;
-    if(element.tagName === "BUTTON") {
-        this.addToCard(element.dataset.id)
+    if (element.tagName === "BUTTON") {
+      this.addToCard(element.dataset.id);
     }
   }
 
   addToCard(id) {
-    console.log(id)
+    const product = this.productImg.find((i) => i.id === +id);
+    this.cart.products.push(product);
   }
 }
 
