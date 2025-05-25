@@ -23,3 +23,4 @@ This is a simple, object-oriented JavaScript e-commerce project built with vanil
 - Event Delegation
 - Object-Oriented Programming (OOP)
 
+![Screenshot](https://github.com/developersaeid/OOP-Store/blob/main/Screenshot%202025-05-25%20203149.png?raw=true)
