@@ -13,6 +13,7 @@ class Cart {
       const quantity = this.products.filter((p) => p.id === product.id).length;
       this.createCard(product, quantity);
     });
+    this.calculateTotalPrice();
   }
 
   createCard(data, quantity) {
@@ -82,15 +83,20 @@ class Cart {
   }
 
   decrease(id) {
-    const index = this.products.findIndex((p) => (p.id === id));
+    const index = this.products.findIndex((p) => p.id === id);
     this.products.splice(index, 1);
     this.showProducts();
   }
 
   remove(id) {
     const newProducts = this.products.filter((p) => p.id !== +id);
-    this.products = newProducts
+    this.products = newProducts;
     this.showProducts();
+  }
+
+  calculateTotalPrice() {
+    const total = this.products.reduce((acc, cur) => (acc += cur.price), 0);
+    this.price.innerText = "$" + total;
   }
 }
 
