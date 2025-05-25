@@ -10,9 +10,9 @@ const totalPriceNode = document.getElementById("total-price").querySelector("spa
 
 async function render() {
   const productsData = await fetchData();
-
-  const productsInstance = new Products(productsNode,productsData,cartInstance);
   const cartInstance = new Cart(cartListNode,totalPriceNode)
+  const productsInstance = new Products(productsNode,productsData,cartInstance);
+  
 
   productsInstance.showProducts()
 }

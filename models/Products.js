@@ -50,6 +50,7 @@ class Products {
   addToCard(id) {
     const product = this.productImg.find((i) => i.id === +id);
     this.cart.products.push(product);
+    this.cart.showProducts
   }
 }
 
