@@ -37,7 +37,7 @@ class Cart {
     const info = `
         <div id="cart-info">
             <h4>${name}</h4>
-            <p>${price}</p>
+            <p>$ ${price}</p>
         </div>
     `;
     return info;
