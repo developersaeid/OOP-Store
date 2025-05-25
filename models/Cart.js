@@ -14,8 +14,47 @@ class Cart {
     });
   }
 
-  createCard(data,quantity) {
-    
+  createCard(data, quantity) {
+    const cardEl = document.createElement("div");
+
+    const imgEl = this.productImg(data);
+    const infoEl = this.productInfo(data);
+    const controlEl = this.productControl(data, quantity);
+
+    cardEl.innerHTML = imgEl;
+    cardEl.innerHTML += infoEl;
+    cardEl.innerHTML += controlEl;
+
+    this.parent.appendChild(cardEl)
+  }
+  productImg(data) {
+    const { image, alt } = data;
+    const img = `<img alt="${alt}" src="${image}"/>`;
+    return img;
+  }
+  productInfo(data) {
+    const { name, price } = data;
+    const info = `
+        <div>
+            <h4>${name}</h4>
+            <p>${price}</p>
+        </div>
+    `;
+    return info;
+  }
+  productControl(date, quantity) {
+    const { id } = date;
+    const control = `
+    <div>
+        <div>
+            <button data-id=${id}>-</button>
+            <span>${quantity}</span>
+            <button data-id=${id}>+</button>
+        </div>
+        <button data-id=${id}>remove</button>
+    </div>
+    `;
+    return control;
   }
 }
 

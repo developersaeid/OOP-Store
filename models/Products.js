@@ -23,8 +23,8 @@ class Products {
 
   productImg(data) {
     const { image, alt } = data;
-    const imgJsx = `<img alt="${alt}" src="${image}"/>`;
-    return imgJsx;
+    const img = `<img alt="${alt}" src="${image}"/>`;
+    return img;
   }
   productInfo(data) {
     const { id, name, price } = data;
@@ -48,9 +48,9 @@ class Products {
   }
 
   addToCard(id) {
-    const product = this.productImg.find((i) => i.id === +id);
+    const product = this.products.find((i) => i.id === +id);
     this.cart.products.push(product);
-    this.cart.showProducts
+    this.cart.showProducts();
   }
 }
 
