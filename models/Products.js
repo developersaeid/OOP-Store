@@ -3,6 +3,7 @@ class Products {
   constructor(parent, products) {
     this.parent = parent;
     this.products = products;
+    this.parent.addEventListener("click", this);
   }
   showProducts() {
     this.products.forEach((product) => this.createCard(product));
@@ -27,7 +28,7 @@ class Products {
   productInfo(data) {
     const { id, name, price } = data;
     const infoJsx = `
-    <div>
+    <div id="product-info">
         <h3>${name}</h3>
         <div>
             <span>${price}</span>
@@ -36,6 +37,17 @@ class Products {
     </div>
     `;
     return infoJsx;
+  }
+
+  handleEvent() {
+    const element = event.target;
+    if(element.tagName === "BUTTON") {
+        this.addToCard(element.dataset.id)
+    }
+  }
+
+  addToCard(id) {
+    console.log(id)
   }
 }
 
